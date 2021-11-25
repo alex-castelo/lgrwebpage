@@ -1,7 +1,13 @@
-<template>
-  <Tutorial/>
-</template>
-
 <script>
-export default {}
+export default {
+  layout: 'default',
+
+  beforeCreate() {
+    this.$router.replace({ path: '/landing' })
+  },
+
+  render() {
+    return null
+  },
+}
 </script>

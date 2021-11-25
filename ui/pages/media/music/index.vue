@@ -12,6 +12,8 @@ import { mapActions, mapState } from 'vuex'
 export default {
   name: 'MusicPage',
 
+  layout: 'grid-layout',
+
   computed: {
     ...mapState('auth', ['tracks']),
   },

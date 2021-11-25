@@ -2,7 +2,8 @@
   <div class="app">
     <nav-bar />
     <div class="container">
-      <Nuxt class="content" />
+      <h1 class="page-title">{{ pageTitle }}</h1>
+      <Nuxt class="grid" />
     </div>
     <the-footer />
   </div>
@@ -16,6 +17,12 @@ export default {
   components: {
     NavBar,
     TheFooter,
+  },
+
+  computed: {
+    pageTitle() {
+      return this.$route.name.toUpperCase()
+    },
   },
 }
 </script>
@@ -35,10 +42,16 @@ export default {
   margin-bottom: 4rem;
 }
 
-.content {
-  position: relative;
-  margin-right: auto;
-  margin-left: auto;
+.page-title {
+  margin: 16px auto;
+}
+
+.grid {
+  display: grid;
   width: 100%;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 16px;
 }
 </style>

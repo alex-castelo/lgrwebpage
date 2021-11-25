@@ -52,6 +52,6 @@ export default {
   margin: 0 auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-gap: 16px;
+  grid-gap: 24px;
 }
 </style>

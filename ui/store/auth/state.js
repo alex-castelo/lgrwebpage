@@ -1,4 +1,4 @@
 export default () => ({
   authToken: null,
-  tracks: [],
+  tracks: null,
 })

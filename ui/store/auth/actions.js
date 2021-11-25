@@ -12,10 +12,32 @@ async function fetchTopTracks({ state, commit }) {
   const { authToken } = state
   const result = await getTopTracks(authToken)
 
-  commit('SET_TOP_TRACKS', result)
+  const formattedData = result.tracks.map((track) =>
+    __getRequiredAlbumData(track)
+  )
+
+  commit('SET_TOP_TRACKS', formattedData)
 }
 
 export default {
   logIn,
   fetchTopTracks,
+}
+
+function __getRequiredAlbumData({ album }) {
+  return {
+    artist: {
+      name: album.artists[0].name,
+    },
+    images: {
+      big: album.images[0].url,
+      medium: album.images[1].url,
+      small: album.images[2].url,
+    },
+    album: {
+      name: album.name,
+      releaseDate: album.release_date,
+      tracks: album.total_tracks,
+    },
+  }
 }

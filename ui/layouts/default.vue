@@ -34,4 +34,11 @@ export default {
   flex-grow: 1;
   margin-bottom: 4rem;
 }
+
+.content {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
 </style>

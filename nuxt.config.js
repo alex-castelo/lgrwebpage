@@ -14,6 +14,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  srcDir: 'ui',
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/globals.css'],
 
@@ -43,4 +45,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  env: {
+    SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
+    CLIENT_ID: process.env.CLIENT_ID,
+  },
+
+  privateRuntimeConfig: {
+    spotifyClientId: process.env.CLIENT_ID,
+    spotifyclientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+  },
 }

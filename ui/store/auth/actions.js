@@ -9,8 +9,8 @@ async function logIn({ commit }) {
 }
 
 async function fetchTopTracks({ state, commit }) {
-  const { token } = state
-  const result = await getTopTracks(token)
+  const { authToken } = state
+  const result = await getTopTracks(authToken)
 
   commit('SET_TOP_TRACKS', result)
 }

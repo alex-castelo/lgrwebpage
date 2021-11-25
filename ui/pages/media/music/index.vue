@@ -1,23 +1,30 @@
 <template>
   <div>
-    <div class="album">Hola que ase</div>
+    <div class="album" v-text="tracks" />
+    <button @click="getToken">TOKEN NUEVO</button>
+    <button @click="fetchTopSongs">TOP SONGS</button>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'MusicPage',
 
-  computed: {},
-
-  created() {
-    this.logIn()
+  computed: {
+    ...mapState('auth', ['tracks']),
   },
 
   methods: {
-    ...mapActions('auth', ['logIn']),
+    ...mapActions('auth', ['logIn', 'fetchTopTracks']),
+    getToken() {
+      this.logIn()
+    },
+
+    fetchTopSongs() {
+      this.fetchTopTracks()
+    },
   },
 }
 </script>

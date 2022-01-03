@@ -24,10 +24,15 @@ export default {
   fetchTopTracks,
 }
 
-function __getRequiredAlbumData({ album }) {
+function __getRequiredAlbumData({
+  album,
+  external_urls: { spotify },
+  name,
+  preview_url: previewUrl,
+}) {
   return {
     artist: {
-      name: album.artists[0].name,
+      trackName: name,
     },
     images: {
       big: album.images[0].url,
@@ -38,6 +43,10 @@ function __getRequiredAlbumData({ album }) {
       name: album.name,
       releaseDate: album.release_date,
       tracks: album.total_tracks,
+    },
+    song: {
+      previewUrl,
+      link: spotify,
     },
   }
 }

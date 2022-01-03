@@ -1,25 +1,14 @@
 <template>
   <div>
     <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
-    </div>
-    <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
-    </div>
-    <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
-    </div>
-    <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
-    </div>
-    <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
-    </div>
-    <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
-    </div>
-    <div v-if="tracks" class="album">
-      <img :src="firstTrack.images.medium" alt="" srcset="" />
+      <img :src="firstTrack.images.medium" alt="Album image" />
+      <p class="song-title">{{ firstTrack.artist.trackName }}</p>
+      <p><b>Name:</b> {{ firstTrack.album.name }}</p>
+      <p><b>Fecha de lanzamiento:</b> {{ firstTrack.album.releaseDate }}</p>
+      <p>
+        <b>Spotify:</b> <a target="_blank" :href="firstTrack.song.link">link</a>
+      </p>
+      <p><audio controls :src="firstTrack.song.previewUrl">Preview</audio></p>
     </div>
 
     <div class="buttons">
@@ -75,5 +64,11 @@ img {
 .container img:hover {
   transform: perspective(800px) rotateY(0deg);
   opacity: 1;
+}
+
+.song-title {
+  margin-top: 2.5rem;
+  font-weight: 700;
+  font-size: 2rem;
 }
 </style>

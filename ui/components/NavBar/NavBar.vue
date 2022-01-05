@@ -2,7 +2,9 @@
   <nav class="navbar">
     <ul class="navbar-list">
       <li v-for="route in routes" :key="route.name" class="navbar-item">
-        <NuxtLink :to="route.path">{{ route.name }}</NuxtLink>
+        <NuxtLink :to="route.path">
+          {{ route.name }}
+        </NuxtLink>
       </li>
     </ul>
   </nav>

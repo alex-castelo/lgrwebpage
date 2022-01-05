@@ -2,7 +2,9 @@
   <div class="app">
     <nav-bar />
     <div class="container">
-      <h1 class="page-title">{{ pageTitle }}</h1>
+      <h1 class="page-title">
+        {{ pageTitle }}
+      </h1>
       <Nuxt class="grid" />
     </div>
     <the-footer />

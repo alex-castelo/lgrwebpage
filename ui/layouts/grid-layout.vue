@@ -39,6 +39,7 @@ export default {
 .container {
   display: flex;
   position: relative;
+  text-align: center;
   flex-direction: column;
   flex-grow: 1;
   margin-bottom: 4rem;
@@ -51,9 +52,9 @@ export default {
 .grid {
   display: grid;
   width: 100%;
-  margin: 0 auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto;
-  grid-gap: 24px;
 }
 </style>

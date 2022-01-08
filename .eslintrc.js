@@ -40,5 +40,17 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-template': 'error',
     'require-await': 'error',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'never',
+          normal: 'always',
+          component: 'always',
+        },
+        svg: 'always',
+        math: 'always',
+      },
+    ],
   },
 }

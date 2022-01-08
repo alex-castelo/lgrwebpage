@@ -4,12 +4,8 @@ const routes = [
     path: '/landing',
   },
   {
-    name: 'Spotify',
-    path: '/media/music/spotify',
-  },
-  {
-    name: 'Youtube',
-    path: '/media/music/youtube',
+    name: 'Music',
+    path: '/media/music',
   },
 ]
 

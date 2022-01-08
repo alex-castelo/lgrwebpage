@@ -1,7 +1,9 @@
 <template>
   <div v-if="album">
-    <img :src="album.images.medium" alt="Album image" />
-    <p class="song-title">{{ album.artist.trackName }}</p>
+    <img :src="album.images.medium" alt="Album image"></img>
+    <p class="song-title">
+      {{ album.artist.trackName }}
+    </p>
     <p><b>Name:</b> {{ album.album.name }}</p>
     <p><b>Fecha de lanzamiento:</b> {{ album.album.releaseDate }}</p>
     <p><b>Spotify:</b> <a target="_blank" :href="album.song.link">link</a></p>
@@ -23,7 +25,7 @@ export default {
 
 <style scoped>
 .song-title {
-  margin-top: 2.5rem;
+  margin-top: 0.5rem;
   font-weight: 700;
   font-size: 2rem;
 }

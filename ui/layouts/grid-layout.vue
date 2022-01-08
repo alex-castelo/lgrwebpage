@@ -23,7 +23,7 @@ export default {
 
   computed: {
     pageTitle() {
-      return this.$route.name.toUpperCase()
+      return this.$route.fullPath.toUpperCase()
     },
   },
 }

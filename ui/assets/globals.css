@@ -5,3 +5,7 @@
   --color4: #f2bf8a;
   --color5: #f4eb97;
 }
+
+.stack > * + * {
+  margin-top: 1rem;
+}

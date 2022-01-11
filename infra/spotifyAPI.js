@@ -6,7 +6,7 @@ export async function getToken(clientId, clientSecret) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: 'Basic ' + btoa(clientId + ':' + clientSecret),
+      Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
     },
     body: 'grant_type=client_credentials',
   })
@@ -20,9 +20,19 @@ export async function getTopTracks(token) {
     `https://api.spotify.com/v1/artists/${ARTIST_ID}/top-tracks?market=ES`,
     {
       method: 'GET',
-      headers: { Authorization: 'Bearer ' + token },
+      headers: { Authorization: `Bearer ${token}` },
     }
   )
+
+  const data = await result.json()
+  return data
+}
+
+export async function getTrackInfo({ trackId, token }) {
+  const result = await fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  })
 
   const data = await result.json()
   return data

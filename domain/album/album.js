@@ -1,4 +1,5 @@
 export default function getRequiredAlbumData({
+  id: songId,
   album,
   external_urls: { spotify },
   name,
@@ -19,6 +20,7 @@ export default function getRequiredAlbumData({
       tracks: album.total_tracks,
     },
     song: {
+      songId,
       previewUrl,
       link: spotify,
     },

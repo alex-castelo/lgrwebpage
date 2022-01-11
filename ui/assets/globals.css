@@ -6,6 +6,14 @@
   --color5: #f4eb97;
 }
 
-.stack > * + * {
+.stack-l > * + * {
   margin-top: 1rem;
+}
+
+.stack-m > * + * {
+  margin-top: 0.75rem;
+}
+
+.stack-s > * + * {
+  margin-top: 0.5rem;
 }

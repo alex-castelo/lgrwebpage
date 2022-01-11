@@ -3,13 +3,18 @@
     <div class="card__cover">
       <img :src="album.images.medium" class="border" alt="Album image"></img>
     </div>
-    <div class="card__content stack">
+    <div class="card__content stack-s">
       <p class="song-title">
         {{ album.artist.trackName }}
       </p>
       <p><b>Name:</b> {{ album.album.name }}</p>
       <p><b>Fecha de lanzamiento:</b> {{ album.album.releaseDate }}</p>
       <p><b>Spotify:</b> <a target="_blank" :href="album.song.link">link</a></p>
+      <p>
+        <nuxt-link :to="`/media/music/track/${album.song.songId}`">
+          More info
+        </nuxt-link>
+      </p>
       <p><audio controls :src="album.song.previewUrl">Preview</audio></p>
     </div>
   </div>

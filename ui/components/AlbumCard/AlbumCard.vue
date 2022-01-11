@@ -5,7 +5,7 @@
     </div>
     <div class="card__content stack-s">
       <p class="song-title">
-        {{ album.artist.trackName }}
+        {{ album.song.name }}
       </p>
       <p><b>Name:</b> {{ album.album.name }}</p>
       <p><b>Fecha de lanzamiento:</b> {{ album.album.releaseDate }}</p>

@@ -2,11 +2,12 @@
 const ARTIST_ID = '4Me5uB1aAglEiE97wxIoX7'
 
 export async function getToken(clientId, clientSecret) {
+  const bearer = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
   const result = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
+      Authorization: `Basic ${bearer}`,
     },
     body: 'grant_type=client_credentials',
   })

@@ -5,6 +5,11 @@
     <p><b>Artist:</b> {{ trackInfo.artists[0].name }}</p>
     <p><b>Artist info:</b> <a :href="trackInfo.artists[0].external_urls.spotify" target="_blank">link</a></p>
     <img :src="trackInfo.album.images[1].url" alt=""></img>
+    <p>
+      <nuxt-link :to="`/media/music/`">
+        {{ `⇤ Back` }}
+      </nuxt-link>
+    </p>
   </div>
 </template>
 

@@ -1,20 +1,17 @@
 <template>
   <div v-if="album" class="card">
-    <div class="card__cover">
-      <img :src="album.images.medium" class="border" alt="Album image"></img>
-    </div>
+    <nuxt-link :to="`/media/music/track/${album.song.songId}`">
+      <div class="card__cover">
+        <img :src="album.images.medium" class="border" alt="Album image"></img>
+      </div>
+    </nuxt-link>
     <div class="card__content stack-s">
       <p class="song-title">
         {{ album.song.name }}
       </p>
-      <p><b>Name:</b> {{ album.album.name }}</p>
+      <p><b>Album name:</b> {{ album.album.albumName }}</p>
       <p><b>Fecha de lanzamiento:</b> {{ album.album.releaseDate }}</p>
       <p><b>Spotify:</b> <a target="_blank" :href="album.song.link">link</a></p>
-      <p>
-        <nuxt-link :to="`/media/music/track/${album.song.songId}`">
-          More info
-        </nuxt-link>
-      </p>
       <p><audio controls :src="album.song.previewUrl">Preview</audio></p>
     </div>
   </div>

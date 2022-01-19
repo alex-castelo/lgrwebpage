@@ -8,17 +8,12 @@ module.exports = {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
-  extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended',
-    'eslint:recommended',
-    'prettier',
-    'plugin:vue/recommended',
-  ],
+  extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
   plugins: ['vue'],
   // add your custom rules here
   rules: {
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/max-attributes-per-line': ['off'],
     'no-console': 'warn',
     'no-debugger': 'warn',
     'no-unused-vars': 'warn',

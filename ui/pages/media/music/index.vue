@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="grid">
     <album-card
       v-for="(track, i) in topTracks"
       :key="`album-${i}`"
@@ -39,21 +39,12 @@ export default {
 </script>
 
 <style scoped>
-img {
-  object-fit: cover;
-  -webkit-box-reflect: below 2px
-    linear-gradient(transparent, transparent, #0004);
-  transform-origin: center;
-  transform: perspective(800px) rotateY(25deg);
-  transition: 0.5s;
-}
-
-.container:hover img {
-  opacity: 0.3;
-}
-
-.container img:hover {
-  transform: perspective(800px) rotateY(0deg);
-  opacity: 1;
+.grid {
+  display: grid;
+  width: 100%;
+  grid-gap: 1rem;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
 }
 </style>

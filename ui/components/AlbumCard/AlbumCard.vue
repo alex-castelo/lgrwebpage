@@ -1,18 +1,17 @@
 <template>
-  <div v-if="album" class="card">
-    <nuxt-link :to="`/media/music/track/${album.song.songId}`">
-      <div class="card__cover">
-        <img :src="album.images.medium" class="border" alt="Album image"></img>
-      </div>
-    </nuxt-link>
-    <div class="card__content stack-s">
+  <div v-if="album">
+    <img :src="album.images.medium" class="responsive" alt="Album image" />
+    <div class="stack-s">
       <p class="song-title">
         {{ album.song.name }}
       </p>
-      <p><b>Album name:</b> {{ album.album.albumName }}</p>
-      <p><b>Fecha de lanzamiento:</b> {{ album.album.releaseDate }}</p>
       <p><b>Spotify:</b> <a target="_blank" :href="album.song.link">link</a></p>
-      <p><audio controls :src="album.song.previewUrl">Preview</audio></p>
+      <p>
+        <b>More info:</b>
+        <nuxt-link :to="`/media/music/track/${album.song.songId}`"
+          >link
+        </nuxt-link>
+      </p>
     </div>
   </div>
 </template>
@@ -36,23 +35,8 @@ export default {
   font-size: 2rem;
 }
 
-.border{
-   border: 1px solid black;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-}
-
-.card__cover {
-    height: 300px;
-    width: 100%;
-}
-
-.card__content {
-    /* Take available height */
-    background-color: white;
-    flex: 1;
+.border {
+  max-width: 100%;
+  height: auto;
 }
 </style>

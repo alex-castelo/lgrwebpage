@@ -1,15 +1,27 @@
 <template>
-  <div v-if="trackInfo" class="stack-m center">
-    <h1>{{ trackInfo.name }}</h1>
-    <p><b>Album:</b> {{ trackInfo.album.name }}</p>
-    <p><b>Artist:</b> {{ trackInfo.artists[0].name }}</p>
-    <p><b>Artist info:</b> <a :href="trackInfo.artists[0].external_urls.spotify" target="_blank">link</a></p>
-    <img :src="trackInfo.album.images[1].url" alt=""></img>
-    <p>
-      <nuxt-link :to="`/media/music/`">
-        {{ `⇤ Back` }}
-      </nuxt-link>
-    </p>
+  <div>
+    <div v-if="trackInfo" class="stack-m">
+      <h1>{{ trackInfo.name }}</h1>
+      <img
+        :src="trackInfo.album.images[1].url"
+        :alt="`Imagen del album de la canción ${trackInfo.name}`"
+      />
+      <p><audio controls :src="trackInfo.preview_url">Preview</audio></p>
+      <p><b>Album:</b> {{ trackInfo.album.name }}</p>
+      <p><b>Artist:</b> {{ trackInfo.artists[0].name }}</p>
+      <p>
+        <b>Artist info:</b>
+        <a :href="trackInfo.artists[0].external_urls.spotify" target="_blank"
+          >link</a
+        >
+      </p>
+
+      <p>
+        <nuxt-link :to="`/media/music/`">
+          {{ `⇤ Back` }}
+        </nuxt-link>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -50,7 +62,7 @@ export default {
 </script>
 
 <style scoped>
-.center{
+.center {
   text-align: center;
   margin: 0 auto;
 }

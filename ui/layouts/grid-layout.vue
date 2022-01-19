@@ -5,7 +5,7 @@
       <h1 class="page-title">
         {{ pageTitle }}
       </h1>
-      <Nuxt class="grid" />
+      <Nuxt />
     </div>
     <the-footer />
   </div>
@@ -47,14 +47,5 @@ export default {
 
 .page-title {
   margin: 16px auto;
-}
-
-.grid {
-  display: grid;
-  width: 100%;
-  grid-gap: 1rem;
-  align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: auto;
 }
 </style>

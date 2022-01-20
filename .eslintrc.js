@@ -9,7 +9,7 @@ module.exports = {
     requireConfigFile: false,
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
-  plugins: ['vue'],
+  plugins: ['vue', 'testing-library'],
   // add your custom rules here
   rules: {
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
@@ -35,5 +35,9 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-template': 'error',
     'require-await': 'error',
+    'testing-library/await-async-query': 'error',
+    'testing-library/no-await-sync-query': 'error',
+    'testing-library/no-debugging-utils': 'warn',
+    'testing-library/no-dom-import': 'off',
   },
 }

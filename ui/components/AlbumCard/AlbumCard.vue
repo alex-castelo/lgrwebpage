@@ -35,6 +35,11 @@ export default {
   font-size: 2rem;
 }
 
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
 .border {
   max-width: 100%;
   height: auto;

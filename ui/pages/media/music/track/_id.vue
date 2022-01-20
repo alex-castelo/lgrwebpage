@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="center">
     <div v-if="trackInfo" class="stack-m">
       <h1>{{ trackInfo.name }}</h1>
       <img

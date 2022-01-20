@@ -17,3 +17,9 @@
 .stack-s > * + * {
   margin-top: 0.5rem;
 }
+
+.logo-img__responsive {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}

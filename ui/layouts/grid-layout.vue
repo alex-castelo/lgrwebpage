@@ -42,7 +42,8 @@ export default {
   text-align: center;
   flex-direction: column;
   flex-grow: 1;
-  margin-bottom: 4rem;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
 }
 
 .page-title {

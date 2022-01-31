@@ -3,13 +3,14 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    'jest/globals': true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
-  plugins: ['vue', 'testing-library'],
+  plugins: ['vue', 'testing-library', 'jest'],
   // add your custom rules here
   rules: {
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
@@ -39,5 +40,10 @@ module.exports = {
     'testing-library/no-await-sync-query': 'error',
     'testing-library/no-debugging-utils': 'warn',
     'testing-library/no-dom-import': 'off',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
   },
 }

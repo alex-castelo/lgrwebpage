@@ -1,17 +1,17 @@
 <template>
   <div class="center">
-    <div v-if="trackInfo" class="stack-m">
-      <h1>{{ trackInfo.name }}</h1>
+    <div v-if="track" data-testid="track-info" class="stack-m">
+      <h1>{{ track.name }}</h1>
       <img
-        :src="trackInfo.album.images[1].url"
-        :alt="`Imagen del album de la canción ${trackInfo.name}`"
+        :src="track.album.images[1].url"
+        :alt="`Imagen del album de la canción ${track.name}`"
       />
-      <p><audio controls :src="trackInfo.preview_url">Preview</audio></p>
-      <p><b>Album:</b> {{ trackInfo.album.name }}</p>
-      <p><b>Artist:</b> {{ trackInfo.artists[0].name }}</p>
+      <p><audio controls :src="track.preview_url">Preview</audio></p>
+      <p><b>Album:</b> {{ track.album.name }}</p>
+      <p><b>Artist:</b> {{ track.artists[0].name }}</p>
       <p>
         <b>Artist info:</b>
-        <a :href="trackInfo.artists[0].external_urls.spotify" target="_blank"
+        <a :href="track.artists[0].external_urls.spotify" target="_blank"
           >link</a
         >
       </p>
@@ -27,35 +27,27 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import { getTrackInfo } from '@@/infra/spotifyAPI'
 
 export default {
   data() {
     return {
-      trackInfo: null,
       trackId: this.$route?.params?.id,
     }
   },
 
   computed: {
-    ...mapState('auth', ['authToken']),
+    ...mapState('spotify', ['track']),
   },
 
   async created() {
-    await this.logIn()
-    await this.fetchTrackInfo()
+    await this.getTrackInfo()
   },
 
   methods: {
-    ...mapActions('auth', ['logIn']),
+    ...mapActions('spotify', ['fetchTrackInfo']),
 
-    async fetchTrackInfo() {
-      const authInfo = {
-        trackId: this.trackId,
-        token: this.authToken,
-      }
-
-      this.trackInfo = await getTrackInfo(authInfo)
+    async getTrackInfo() {
+      await this.fetchTrackInfo(this.trackId)
     },
   },
 }

@@ -27,12 +27,10 @@ export default {
   },
 
   async created() {
-    await this.logIn()
     await this.fetchTopTracks()
   },
 
   methods: {
-    ...mapActions('auth', ['logIn']),
     ...mapActions('spotify', ['fetchTopTracks']),
   },
 }

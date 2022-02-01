@@ -1,10 +1,14 @@
 import { getTopTracks, getTrackInfo } from '@@/infra/spotifyAPI.js'
 import getRequiredAlbumData from '@@/domain/album/album'
 
-async function fetchTopTracks({ rootState, commit }) {
+async function fetchTopTracks({ dispatch, rootState, commit }) {
   const {
     auth: { authToken },
   } = rootState
+
+  if (!authToken) {
+    await dispatch('auth/logIn', null, { root: true })
+  }
 
   const result = await getTopTracks(authToken)
 

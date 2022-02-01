@@ -12,7 +12,7 @@ async function fetchTopTracks({ dispatch, rootState, commit }) {
 
   const result = await getTopTracks(authToken)
 
-  const formattedData = result.tracks.map((track) =>
+  const formattedData = result?.tracks?.map((track) =>
     getRequiredAlbumData(track)
   )
 

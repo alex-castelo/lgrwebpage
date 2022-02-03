@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev src",
     "build": "nuxt build",
-    "start": "nuxt",
+    "start": "npm run dev",
     "start:nuxt": "nuxt start",
     "generate": "nuxt generate",
     "format": "prettier '**/*.{js,vue}' --write && stylelint '**/*.css' --fix",

@@ -1,4 +1,4 @@
-import { getToken } from '@@/infra/spotifyAPI.js'
+import { getToken } from '../../../infra/spotifyAPI.js'
 
 async function logIn({ commit }) {
   const clientId = process.env.CLIENT_ID

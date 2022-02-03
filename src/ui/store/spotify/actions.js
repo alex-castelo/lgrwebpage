@@ -1,5 +1,5 @@
-import { getTopTracks, getTrackInfo } from '@@/infra/spotifyAPI.js'
-import getRequiredAlbumData from '@@/domain/album/album'
+import { getTopTracks, getTrackInfo } from '../../../infra/spotifyAPI'
+import getRequiredAlbumData from '../../../domain/album/album'
 
 async function fetchTopTracks({ dispatch, rootState, commit }) {
   await dispatch('auth/logIn', null, { root: true })

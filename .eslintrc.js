@@ -4,13 +4,14 @@ module.exports = {
     browser: true,
     node: true,
     'jest/globals': true,
+    'cypress/globals': true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
-  plugins: ['vue', 'testing-library', 'jest'],
+  plugins: ['vue', 'testing-library', 'jest', 'cypress'],
   // add your custom rules here
   rules: {
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
@@ -45,5 +46,10 @@ module.exports = {
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
+    'cypress/no-assigning-return-values': 'error',
+    'cypress/no-unnecessary-waiting': 'error',
+    'cypress/assertion-before-screenshot': 'warn',
+    'cypress/no-async-tests': 'error',
+    'cypress/no-pause': 'error',
   },
 }

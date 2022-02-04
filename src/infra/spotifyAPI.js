@@ -13,6 +13,7 @@ export async function getToken(clientId, clientSecret) {
   })
 
   const data = await result.json()
+
   return data.access_token
 }
 

@@ -23,6 +23,7 @@ describe('example to-do app', () => {
       },
     })
 
+    // Redirects to album/media page
     cy.intercept(
       'GET',
       '/v1/artists/4Me5uB1aAglEiE97wxIoX7/top-tracks?market=ES',
@@ -30,8 +31,26 @@ describe('example to-do app', () => {
         statusCode: 200,
         fixture: 'top-tracks',
       }
-    )
+    ).as('topTracks')
 
     cy.url().should('include', '/media/music')
+
+    cy.wait('@topTracks').then(() => {
+      const MAXIMUM_TRACKS_TO_DISPLAY = 9
+
+      cy.get('.album').should('have.length', MAXIMUM_TRACKS_TO_DISPLAY)
+    })
+
+    //Can acces to album details page
+    cy.findAllByTestId('album-card')
+      .first()
+      .within(() => {
+        cy.findByTitle('more-info-link').click()
+      })
+
+    cy.intercept('GET', /\/v1\/tracks\/.*/, {
+      statusCode: 200,
+      fixture: 'track',
+    })
   })
 })

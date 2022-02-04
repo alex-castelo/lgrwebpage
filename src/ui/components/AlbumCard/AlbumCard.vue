@@ -1,5 +1,5 @@
 <template>
-  <div v-if="album">
+  <div v-if="album" data-testid="album-card">
     <img :src="album.images.medium" class="responsive" alt="Album image" />
     <div class="stack-s">
       <p class="song-title">
@@ -8,7 +8,9 @@
       <p><b>Spotify:</b> <a target="_blank" :href="album.song.link">link</a></p>
       <p>
         <b>More info:</b>
-        <nuxt-link :to="`/media/music/track/${album.song.songId}`"
+        <nuxt-link
+          title="more-info-link"
+          :to="`/media/music/track/${album.song.songId}`"
           >link
         </nuxt-link>
       </p>

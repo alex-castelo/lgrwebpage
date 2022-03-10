@@ -14,6 +14,7 @@ module.exports = {
     '.*\\.(vue)$': 'vue-jest',
   },
   testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/test/cypress'],
   resetMocks: true,
   watchPlugins: [
     'jest-watch-typeahead/filename',

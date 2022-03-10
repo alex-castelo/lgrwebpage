@@ -10,7 +10,12 @@ module.exports = {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
-  extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
+  extends: [
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'prettier',
+    'plugin:cypress/recommended',
+  ],
   plugins: ['vue', 'testing-library', 'jest', 'cypress'],
   // add your custom rules here
   rules: {
@@ -37,7 +42,6 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-template': 'error',
     'require-await': 'error',
-    'testing-library/await-async-query': 'error',
     'testing-library/no-await-sync-query': 'error',
     'testing-library/no-debugging-utils': 'warn',
     'testing-library/no-dom-import': 'off',
